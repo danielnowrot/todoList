@@ -18,18 +18,28 @@
          <li 
             ${task.done ? "style =\"text-decoration: line-through\"" : ""}
          >
-         <button class="js-remove">Usuń</button>
+         <button class="js-done">Zrobione</button>
          ${task.content}
+         <button class="js-remove">Usuń</button>
          </li>
          `;
       };
 
       document.querySelector(".js-tasksList").innerHTML = htmlString;
+
       const removeButtons = document.querySelectorAll(".js-remove");
 
       removeButtons.forEach((removeButton,index)=>{
          removeButton.addEventListener("click",() =>{
             removeTask(index);
+         })
+      })
+
+      const toggleDoneButtons = document.querySelectorAll(".js-done");
+
+      toggleDoneButtons.forEach((toggleDoneButton,index)=>{
+         toggleDoneButton.addEventListener("click",() =>{
+            toggleTaskDone(index);
          })
       })
    };
@@ -40,12 +50,17 @@
       })
 
       render();
-   }
+   };
 
    const removeTask = (index) =>{
       tasks.splice(index,1)
             render();
-   }
+   };
+
+   const toggleTaskDone = (index) =>{
+      tasks[index].done=!tasks[index].done;
+      render();
+   };
 
    const onFormSubmit = (event) => {
       event.preventDefault();
@@ -56,7 +71,7 @@
          return;
       }
       addNewTask(newTaskContent);
-   }
+   };
 
    const init = () => {
       render();
