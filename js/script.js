@@ -1,13 +1,5 @@
 {
    const tasks = [
-      {
-         content: "zadanie 1",
-         done: false,
-      },
-      {
-         content: "zadanie 2",
-         done: true,
-      },
    ];
 
    const bindEvents = () => {
@@ -48,6 +40,8 @@
       };
 
       document.querySelector(".js-tasksList").innerHTML = htmlString;
+      document.querySelector(".js-newTask").value = '';
+      document.querySelector(".js-newTask").focus();
       bindEvents();
    };
 
@@ -78,7 +72,7 @@
          return;
       }
       addNewTask(newTaskContent);
-   };
+   };   
 
    const init = () => {
       render();
