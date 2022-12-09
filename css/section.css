@@ -1,0 +1,36 @@
+.section {
+    background-color: rgb(241, 241, 241);
+    color: rgb(5, 5, 5);
+    margin: 10px;
+    border-radius: 2px;
+}
+
+.section__container {
+    padding: 20px;
+}
+
+.section__title {
+    margin: 0;
+    padding: 20px;
+    font-size: 20px;
+    border-bottom: 2px solid gray;
+}
+
+.section__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.section__listItem {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 10px;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 2px solid gray;
+}
+
+.section__listText--done {
+    text-decoration: line-through;
+}
