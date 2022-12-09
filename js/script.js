@@ -10,19 +10,19 @@
       },
    ];
 
-   const bindEvents = () =>{
+   const bindEvents = () => {
       const removeButtons = document.querySelectorAll(".js-remove");
 
-      removeButtons.forEach((removeButton,index)=>{
-         removeButton.addEventListener("click",() =>{
+      removeButtons.forEach((removeButton, index) => {
+         removeButton.addEventListener("click", () => {
             removeTask(index);
          })
       })
 
       const toggleDoneButtons = document.querySelectorAll(".js-done");
 
-      toggleDoneButtons.forEach((toggleDoneButton,index)=>{
-         toggleDoneButton.addEventListener("click",() =>{
+      toggleDoneButtons.forEach((toggleDoneButton, index) => {
+         toggleDoneButton.addEventListener("click", () => {
             toggleTaskDone(index);
          })
       })
@@ -33,12 +33,16 @@
 
       for (const task of tasks) {
          htmlString += `
-         <li 
-            ${task.done ? "style =\"text-decoration: line-through\"" : ""}
-         >
-         <button class="js-done">Zrobione</button>
-         ${task.content}
-         <button class="js-remove">Usuń</button>
+         
+         <li class="section__listItem">
+            <button class="task__button task__button--accept js-done">
+              ${task.done ? "✓" : " "}
+            </button>
+            <span class="section__listText ${task.done ? "section__listText--done" : ""}">
+               ${task.content}  
+            </span>
+            <button class="task__button task__button--remove js-remove">🗑️
+            </button>
          </li>
          `;
       };
@@ -55,13 +59,13 @@
       render();
    };
 
-   const removeTask = (index) =>{
-      tasks.splice(index,1)
-            render();
+   const removeTask = (index) => {
+      tasks.splice(index, 1)
+      render();
    };
 
-   const toggleTaskDone = (index) =>{
-      tasks[index].done=!tasks[index].done;
+   const toggleTaskDone = (index) => {
+      tasks[index].done = !tasks[index].done;
       render();
    };
 
