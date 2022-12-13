@@ -1,6 +1,6 @@
 {
-   let tasks = [
-   ];
+   let tasks = [];
+   let hideDoneTask = false;
 
    const bindRemoveEvents = () => {
       const removeButtons = document.querySelectorAll(".js-remove");
@@ -22,13 +22,22 @@
       })
    }
 
+   const bindButtonEvents = () => {
+      const hideDoneTasksButton = document.querySelector(".js-hideAllDoneTasks");
+
+      if (hideDoneTasksButton) {
+         hideDoneTasksButton.addEventListener("click", hideDoneTasks);
+
+      };
+   }
+
    const renderTasks = () => {
       let htmlString = "";
 
       for (const task of tasks) {
          htmlString += `
          
-         <li class="section__listItem">
+         <li class="section__listItem ${hideDoneTask && task.done ? "section__listItem--hidden" : ""}">
             <button class="task__button task__button--accept js-done">
               ${task.done ? "✓" : " "}
             </button>
@@ -46,13 +55,31 @@
       document.querySelector(".js-newTask").focus();
    };
 
-   const renderButtons = () => { };
+   const renderButtons = () => {
+      let htmlButtonString = "";
+
+      if (tasks.length !== 0) {
+         htmlButtonString = `
+            <button 
+               class="js-hideAllDoneTasks button__hideAll" 
+               ${tasks.some(({ done }) => done) ? "" : "disabled"}>
+               ${hideDoneTask ? "Pokaż " : "Ukryj "}ukończone
+            </button>
+            <button class="js-allTasksDone button__doneAll">
+               Ukończ wszystkie
+            </button>
+         `
+      };
+
+      document.querySelector(".js-tasksListButton").innerHTML = htmlButtonString;
+   };
 
    const render = () => {
       renderTasks();
       renderButtons();
       bindRemoveEvents();
       bindToggleDoneEvents();
+      bindButtonEvents();
    };
 
    const addNewTask = (newTaskContent) => {
@@ -79,6 +106,11 @@
       ]
       render();
    };
+
+   const hideDoneTasks = () => {
+      hideDoneTask = !hideDoneTask;
+      render();
+   }
 
    const onFormSubmit = (event) => {
       event.preventDefault();
