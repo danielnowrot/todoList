@@ -22,29 +22,6 @@
     }
 }
 
-.section__list {
-    list-style: none;
-    margin: 0;
-    padding: 20px;
-}
-
-.section__listItem {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-gap: 10px;
-    padding: 10px;
-    align-items: center;
-    border-bottom: 2px solid gray;
-}
-
-.section__listItem--hidden {
-    display: none;
-}
-
-.section__listText--done {
-    text-decoration: line-through;
-}
-
 .section__header {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -64,58 +41,5 @@
     }
     .section__buttons {
         grid-template-columns: 1fr;
-    }
-}
-
-.button__hideAll {
-    border: none;
-    border-bottom: 2px solid gray;
-    padding: 20px;
-    color: hsl(180, 100%, 25%);
-    transition:1s;
-    cursor: pointer;
-}
-
-.button__hideAll:hover {
-    color: hsl(180, 100%, 30%);
-}
-
-.button__hideAll:active {
-    color:hsl(180, 100%, 35%);
-}
-
-.button__hideAll:disabled {
-    color: gray;
-    cursor: auto;
-}
-
-.button__doneAll {
-    border: none;
-    border-bottom: 2px solid gray;
-    padding: 20px;
-    color: hsl(180, 100%, 25%);
-    transition: 1s;
-    cursor: pointer;
-}
-
-.button__doneAll:hover {
-    color: hsl(180, 100%, 30%);
-}
-
-.button__doneAll:active {
-    color:hsl(180, 100%, 35%);
-}
-
-.button__doneAll:disabled {
-    color: gray;
-    cursor:auto;
-}
-
-@media(max-width:767px) {
-    .button__doneAll {
-        border-bottom: none;
-    }
-    .button__hideAll {
-        border-bottom: none;
     }
 }

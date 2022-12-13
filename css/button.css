@@ -31,3 +31,56 @@
 .task__button--remove:active {
     background: hsl(0, 98%, 55%);
 }
+
+.button__hideAll {
+    border: none;
+    border-bottom: 2px solid gray;
+    padding: 20px;
+    color: hsl(180, 100%, 25%);
+    transition:1s;
+    cursor: pointer;
+}
+
+.button__hideAll:hover {
+    color: hsl(180, 100%, 30%);
+}
+
+.button__hideAll:active {
+    color:hsl(180, 100%, 35%);
+}
+
+.button__hideAll:disabled {
+    color: gray;
+    cursor: auto;
+}
+
+.button__doneAll {
+    border: none;
+    border-bottom: 2px solid gray;
+    padding: 20px;
+    color: hsl(180, 100%, 25%);
+    transition: 1s;
+    cursor: pointer;
+}
+
+.button__doneAll:hover {
+    color: hsl(180, 100%, 30%);
+}
+
+.button__doneAll:active {
+    color:hsl(180, 100%, 35%);
+}
+
+.button__doneAll:disabled {
+    color: gray;
+    cursor:auto;
+}
+
+@media(max-width:767px) {
+    .button__doneAll {
+        border-bottom: none;
+    }
+    .button__hideAll {
+        border-bottom: none;
+    }
+}
