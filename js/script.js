@@ -20,7 +20,7 @@
       })
    }
 
-   const render = () => {
+   const renderTasks = () => {
       let htmlString = "";
 
       for (const task of tasks) {
@@ -42,6 +42,13 @@
       document.querySelector(".js-tasksList").innerHTML = htmlString;
       document.querySelector(".js-newTask").value = '';
       document.querySelector(".js-newTask").focus();
+   };
+
+   const renderButtons = () => {};
+
+   const render = () => {
+      renderTasks();
+      renderButtons();
       bindEvents();
    };
 
