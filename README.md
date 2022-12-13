@@ -5,6 +5,12 @@ This is a simple task list that was created as part of the YouCode course.
 https://danielnowrot.github.io/todoList/
 ## Description
 The page allows you to add, delete and mark as completed various tasks.
+## Updates:
+Added two buttons:
+- Hide done tasks,
+- Mark all tasks completed.
+
+Added visual effects for all buttons.
 ## Technologies:
 - HTML
 - CSS
